@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React from 'react'
+import Header from './components/Header'
+import TinderCards from './components/TinderCards';
+import SwipeButtons from './components/SwipeButtons';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header/>
+        <Switch>
+          <Route path="/chat">Chat page</Route>
+          <Route path="/">
+            <TinderCards/>
+            <SwipeButtons/>
+            </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
